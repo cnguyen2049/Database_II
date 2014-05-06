@@ -27,7 +27,7 @@ $hostname = 'localhost';
 $username = 'root';
 
 /*** mysql password ***/
-$password = 'hachiman24';
+$password = '';
 //$column = 'primary_sex';
 
 try {
