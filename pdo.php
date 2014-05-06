@@ -1,12 +1,14 @@
 
 <?php
 
+$stack  = array();
 $num = count($_POST['option']);
 echo $num;
 $i =0;
 $column = "";
 if(!empty($_POST['option'])) {
     foreach($_POST['option'] as $check ) {
+			$stack[] = $check;
 			if(++$i === $num){
 				$column .= $check ;
 			}
@@ -18,7 +20,7 @@ if(!empty($_POST['option'])) {
                          //in your case, it would echo whatever $row['Report ID'] is equivalent to.
     }
 }
-
+echo $stack[0];
 
 /*** mysql hostname ***/
 $hostname = 'localhost';
@@ -27,7 +29,7 @@ $hostname = 'localhost';
 $username = 'root';
 
 /*** mysql password ***/
-$password = '';
+$password = 'hachiman24';
 //$column = 'primary_sex';
 
 try {
@@ -60,14 +62,20 @@ if(!empty($_POST['option'])) {
 	echo "</tr>";
 }
 foreach($_POST['option'] as $values ) {
+	$temp = $values;
     while($row = $stmt->fetch(PDO::FETCH_ASSOC))
-    {
+    {	echo "</tr>";
+		$j =0;
+		while($j<$num){
 		
-		echo "</tr>";
-		echo "<td>" . $account_key = $row[$values] . "</td>";
-		echo "</tr>";
+		echo "<td>" . $account_key = $row[$stack[$j]] . "</td>";
+		$j++;
+		}
+		
     }
+	
 }
+echo "</tr>";
 echo "</table>";
     /*** close the database connection ***/
     $dbh = null;
