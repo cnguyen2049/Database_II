@@ -18,9 +18,11 @@
         $query = "SELECT ";
         if(isset($monthAttr))
         {
-		
+			if($monthAttr!="blank")
+			{
             $query .= $monthAttr . $comma;
             $headers .= "<th>$monthAttr</th>";
+			}
          
         }
         if(isset($accountAttr))
@@ -33,13 +35,19 @@
         }
         if(isset($branchAttr))
         {
+			if($branchAttr!="blank")
+			{
             $query .= $branchAttr . $comma;
             $headers .= "<th>$branchAttr</th>";
+			}
         }
         if(isset($prodAttr))
         {
+			if($prodAttr!="blank")
+			{
             $query .= $prodAttr . $comma;
             $headers .= "<th>$prodAttr</th>";
+			}
         }
         if(isset($factAttr))
         {
@@ -82,7 +90,10 @@
             echo "<tr>";
             if(isset($monthAttr))
             {
-               echo  "<td>" . $row[$monthAttr] . "</td>"; 
+				if($monthAttr!="blank")
+				{
+					echo  "<td>" . $row[$monthAttr] . "</td>"; 
+				}
             }
             if(isset($accountAttr))
             {
@@ -93,11 +104,17 @@
             }
             if(isset($branchAttr))
             {
-                echo "<td>" . $row[$branchAttr] . "</td>";
+				if($branchAttr!="blank")
+				{
+					echo "<td>" . $row[$branchAttr] . "</td>";
+				}
             }
             if(isset($prodAttr))
             {
-                echo "<td>" . $row[$prodAttr] . "</td>";
+				if($prodAttr!="blank")
+				{
+					echo "<td>" . $row[$prodAttr] . "</td>";
+				}
             }
             if(isset($factAttr))
             {
